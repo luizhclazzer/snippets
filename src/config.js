@@ -1,24 +1,13 @@
 // js.leads2b.com/config.js
 
-(function (token) {
+(async function (token) {
   console.log('leads2bSettings.token', token);
-
-  function getCompanyConfiguration(token) {
-    if (token != '') {
-      return [ {
-        id: 'widget-form-whatsapp',
-        description: 'Widget with a form and button to send WhatsApp message',
-        url: 'src/form_whatsapp.js',
-        // url: 'https://js.leads2b.com/form/latest.js',
-        // settings: {
-        //   color: 'red',
-        // },
-      } ];
-    }
+  if (!token) {
+    console.error('leads2bSettings.token is not defined');
+    return;
   }
 
-  const configs = getCompanyConfiguration(token);
-
+  const configs = await (await fetch('/getCompanyConfiguration')).json();
   configs.forEach(config => {
     // load additional CDN script based on the customer configurations
     if (config.url && typeof config.url === 'string') {
