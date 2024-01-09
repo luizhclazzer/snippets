@@ -8,7 +8,7 @@
       return [ {
         id: 'widget-form-whatsapp',
         description: 'Widget with a form and button to send WhatsApp message',
-        url: 'form_whatsapp.js',
+        url: 'src/form_whatsapp.js',
         // url: 'https://js.leads2b.com/form/latest.js',
         // settings: {
         //   color: 'red',
