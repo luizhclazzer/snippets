@@ -16,9 +16,11 @@
 
       // add additional parameters, if provided
       if (config.settings && typeof config.settings === 'object') {
-        Object.keys(config.settings).forEach(key => {
-          scriptElement.src += `?${key}=${config.settings[key]}`;
-        });
+        let params = Object.keys(config.settings)
+          .map(key => `${key}=${config.settings[key]}`)
+          .join('&');
+
+        scriptElement.src += `?${params}`;
       }
 
       scriptElement.async = true;
