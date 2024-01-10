@@ -7,7 +7,7 @@
     return;
   }
 
-  const configs = await (await fetch('/getCompanyConfiguration')).json();
+  const configs = await (await fetch('n˜')).json();
   configs.forEach(config => {
     // load additional CDN script based on the customer configurations
     if (config.url && typeof config.url === 'string') {
