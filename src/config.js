@@ -7,7 +7,10 @@
     return;
   }
 
-  const configs = await (await fetch('n˜')).json();
+  // currently using page function advanced mode through a _worker.js file
+  // in this case the functions diretory is ignored
+  // TODO: see about _routes.json file to control when functions are invoked
+  const configs = await (await fetch('/getCompanyConfiguration')).json();
   configs.forEach(config => {
     // load additional CDN script based on the customer configurations
     if (config.url && typeof config.url === 'string') {
