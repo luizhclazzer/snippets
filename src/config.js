@@ -12,10 +12,10 @@
   // TODO: see about _routes.json file to control when functions are invoked
   const configs = await (await fetch('/getCompanyConfiguration')).json();
   configs.forEach(config => {
-    // load additional CDN script based on the customer configurations
-    if (config.url && typeof config.url === 'string') {
+    if (config.dir && typeof config.dir === 'string') {
       var scriptElement = document.createElement('script');
-      scriptElement.src = config.url;
+      // js.leads2b.com/<script-slug>/latest.js
+      scriptElement.src = 'src/' + config.dir + '/latest.js';
 
       // add additional parameters, if provided
       if (config.settings && typeof config.settings === 'object') {

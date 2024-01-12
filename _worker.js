@@ -1,3 +1,5 @@
+import latestVersion from './src/latestVersion.js';
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -7,8 +9,11 @@ export default {
     }
 
     if (url.pathname.startsWith('/getCompanyConfiguration')) {
-      // Lógica para buscar configurações
       return handleGetConfigurations(request, env);
+    }
+
+    if (url.pathname.startsWith('/getSnippetVersion')) {
+      return handleSnippetVersion(request, env);
     }
 
     // Otherwise, serve the static assets.
@@ -18,12 +23,18 @@ export default {
 }
 
 async function handleGetConfigurations(request, env) {
+  // TODO: get the configurations from R2 using the customer token
   const configurations = [
     {
       id: 'widget-form-whatsapp',
       description: 'Widget with a form and button to send WhatsApp message - Advanced Function Worker Mode',
-      url: 'src/form_whatsapp.js',
+      dir: 'whatsapp',
     }
   ];
   return new Response(JSON.stringify(configurations));
+}
+
+async function handleSnippetVersion(request, env) {
+  const wppVersion = latestVersion.whatsapp;
+  return new Response(wppVersion);
 }

@@ -1,5 +1,3 @@
-// js.leads2b.com/form/latest.js
-
 function initializeChatWithModal() {
   // create a chat button
   const chatButton = document.createElement('button');

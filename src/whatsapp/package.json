@@ -1,0 +1,7 @@
+{
+  "name": "whatsapp-form-snippet",
+  "version": "0.0.1",
+  "description": "Whatsapp form snippet",
+  "main": "index.js",
+  "license": "MIT"
+}

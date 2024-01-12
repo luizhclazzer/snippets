@@ -3,10 +3,7 @@ export async function onRequest(context) {
     {
       id: 'widget-form-whatsapp',
       description: 'Widget with a form and button to send WhatsApp message',
-      url: 'src/form_whatsapp.js',
-      // settings: {
-      //   color: 'red',
-      // },
+      dir: 'whatsapp',
     }
   ];
   return new Response(JSON.stringify(configurations));
